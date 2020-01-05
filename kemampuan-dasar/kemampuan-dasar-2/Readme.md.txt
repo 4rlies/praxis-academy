@@ -1,0 +1,1 @@
+Repo yang berhubungan dengan praktik-2.md adalah github.com/4rlies/repo-praktik

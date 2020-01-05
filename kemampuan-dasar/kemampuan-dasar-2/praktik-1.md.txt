@@ -1,0 +1,224 @@
+
+Windows@DESKTOP-M9EBDDL MINGW64 ~
+$ # Alice renames origin -> alice.
+
+Windows@DESKTOP-M9EBDDL MINGW64 ~
+$ cd rhymes
+bash: cd: rhymes: No such file or directory
+
+Windows@DESKTOP-M9EBDDL MINGW64 ~
+$ git remote rename origin alice
+fatal: not a git repository (or any of the parent directories): .git
+
+Windows@DESKTOP-M9EBDDL MINGW64 ~
+$
+
+Windows@DESKTOP-M9EBDDL MINGW64 ~
+$ # Add a remote pointing to Bob's copy of the project.
+
+Windows@DESKTOP-M9EBDDL MINGW64 ~
+$ git remote add bob https://github.com/bryanhirsch/rhymes.git
+fatal: not a git repository (or any of the parent directories): .git
+
+Windows@DESKTOP-M9EBDDL MINGW64 ~
+$
+
+Windows@DESKTOP-M9EBDDL MINGW64 ~
+$ # Review remotes.
+
+Windows@DESKTOP-M9EBDDL MINGW64 ~
+$ git remote
+fatal: not a git repository (or any of the parent directories): .git
+
+Windows@DESKTOP-M9EBDDL MINGW64 ~
+$
+
+Windows@DESKTOP-M9EBDDL MINGW64 ~
+$ # Confirm each remote points to the correct repository.
+
+Windows@DESKTOP-M9EBDDL MINGW64 ~
+$ git remote -v
+fatal: not a git repository (or any of the parent directories): .git
+
+Windows@DESKTOP-M9EBDDL MINGW64 ~
+$ mkdir rhymes
+
+Windows@DESKTOP-M9EBDDL MINGW64 ~
+$ cd rhymes
+
+Windows@DESKTOP-M9EBDDL MINGW64 ~/rhymes
+$ git init
+Initialized empty Git repository in C:/Users/Windows/rhymes/.git/
+
+Windows@DESKTOP-M9EBDDL MINGW64 ~/rhymes (master)
+$ touch README.txt
+
+Windows@DESKTOP-M9EBDDL MINGW64 ~/rhymes (master)
+$ touch README.txt                                                                 
+Windows@DESKTOP-M9EBDDL MINGW64 ~/rhymes (master)
+$ git add README.txt
+
+Windows@DESKTOP-M9EBDDL MINGW64 ~/rhymes (master)
+$ git commit -m 'First commit.'
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'Windows@DESKTOP-M9EBDDL.(none)')
+
+Windows@DESKTOP-M9EBDDL MINGW64 ~/rhymes (master)
+$ echo 'This repo is a collection of my favorite nursery rhymes.' >> README.txt
+
+Windows@DESKTOP-M9EBDDL MINGW64 ~/rhymes (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   README.txt
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   README.txt
+
+
+Windows@DESKTOP-M9EBDDL MINGW64 ~/rhymes (master)
+$ git diff
+warning: LF will be replaced by CRLF in README.txt.
+The file will have its original line endings in your working directory
+diff --git a/README.txt b/README.txt
+index e69de29..c83e022 100644
+--- a/README.txt
++++ b/README.txt
+@@ -0,0 +1 @@
++This repo is a collection of my favorite nursery rhymes.
+
+Windows@DESKTOP-M9EBDDL MINGW64 ~/rhymes (master)
+$ git add READNE.txt
+fatal: pathspec 'READNE.txt' did not match any files
+
+Windows@DESKTOP-M9EBDDL MINGW64 ~/rhymes (master)
+$ git add README.txt
+warning: LF will be replaced by CRLF in README.txt.
+The file will have its original line endings in your working directory
+
+Windows@DESKTOP-M9EBDDL MINGW64 ~/rhymes (master)
+$ git commit -m 'Added project overview to README.txt'
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'Windows@DESKTOP-M9EBDDL.(none)')
+
+Windows@DESKTOP-M9EBDDL MINGW64 ~/rhymes (master)
+$ git config --global 4rliez@gmail.com
+error: invalid key: 4rliez@gmail.com
+
+Windows@DESKTOP-M9EBDDL MINGW64 ~/rhymes (master)
+$ git config --4rliez@gmail.com                                                    error: unknown option `4rliez@gmail.com'
+usage: git config [<options>]
+
+Config file location
+    --global              use global config file
+    --system              use system config file
+    --local               use repository config file
+    --worktree            use per-worktree config file
+    -f, --file <file>     use given config file
+    --blob <blob-id>      read config from given blob object
+
+Action
+    --get                 get value: name [value-regex]
+    --get-all             get all values: key [value-regex]
+    --get-regexp          get values for regexp: name-regex [value-regex]
+    --get-urlmatch        get value specific for the URL: section[.var] URL
+    --replace-all         replace all matching variables: name value [value_regex]
+    --add                 add a new variable: name value
+    --unset               remove a variable: name [value-regex]
+    --unset-all           remove all matches: name [value-regex]
+    --rename-section      rename section: old-name new-name
+    --remove-section      remove a section: name
+    -l, --list            list all
+    -e, --edit            open an editor
+    --get-color           find the color configured: slot [default]
+    --get-colorbool       find the color setting: slot [stdout-is-tty]
+
+Type
+    -t, --type <>         value is given this type
+    --bool                value is "true" or "false"
+    --int                 value is decimal number
+    --bool-or-int         value is --bool or --int
+    --path                value is a path (file or directory name)
+    --expiry-date         value is an expiry date
+
+Other
+    -z, --null            terminate values with NUL byte
+    --name-only           show variable names only
+    --includes            respect include directives on lookup
+    --show-origin         show origin of config (file, standard input, blob, command line)
+    --default <value>     with --get, use default value when missing entry
+
+
+Windows@DESKTOP-M9EBDDL MINGW64 ~/rhymes (master)
+$ git config --4rliez
+error: unknown option `4rliez'
+usage: git config [<options>]
+
+Config file location
+    --global              use global config file
+    --system              use system config file
+    --local               use repository config file
+    --worktree            use per-worktree config file
+    -f, --file <file>     use given config file
+    --blob <blob-id>      read config from given blob object
+
+Action
+    --get                 get value: name [value-regex]
+    --get-all             get all values: key [value-regex]
+    --get-regexp          get values for regexp: name-regex [value-regex]
+    --get-urlmatch        get value specific for the URL: section[.var] URL
+    --replace-all         replace all matching variables: name value [value_regex]
+    --add                 add a new variable: name value
+    --unset               remove a variable: name [value-regex]
+    --unset-all           remove all matches: name [value-regex]
+    --rename-section      rename section: old-name new-name
+    --remove-section      remove a section: name
+    -l, --list            list all
+    -e, --edit            open an editor
+    --get-color           find the color configured: slot [default]
+    --get-colorbool       find the color setting: slot [stdout-is-tty]
+
+Type
+    -t, --type <>         value is given this type
+    --bool                value is "true" or "false"
+    --int                 value is decimal number
+    --bool-or-int         value is --bool or --int
+    --path                value is a path (file or directory name)
+    --expiry-date         value is an expiry date
+
+Other
+    -z, --null            terminate values with NUL byte
+    --name-only           show variable names only
+    --includes            respect include directives on lookup
+    --show-origin         show origin of config (file, standard input, blob, command line)
+    --default <value>     with --get, use default value when missing entry
+
+
+Windows@DESKTOP-M9EBDDL MINGW64 ~/rhymes (master)
+$
